@@ -1,3 +1,18 @@
+<?php
+
+// !emptyは「取得したsubmitButtonの値が空じゃない時にtrue」 (emptyが空の場合true)
+if(!empty($_POST["submitButton"])) {
+  // ユーザーネームの名前を取得 (inputタグのname属性から取得する)
+  // $_POSTはフォームタグで送信された内容を取得する
+  echo $_POST["username"];
+  echo $_POST["comment"];
+}
+
+
+
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -23,14 +38,14 @@
       </article>
     </section>
 
-    <form class="formWrapper">
+    <form class="formWrapper" method="POST">
       <div>
-        <input type="submit" value="書き込む">
+        <input type="submit" value="書き込む" name="submitButton">
         <label for="">名前: </label>
         <input type="text" name="username">
       </div>
       <div>
-        <textarea class="commentTextArea">
+        <textarea class="commentTextArea" name="comment">
         </textarea>
       </div>
     </form>
